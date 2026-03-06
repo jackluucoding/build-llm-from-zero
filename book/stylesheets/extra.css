@@ -1,0 +1,236 @@
+/* ============================================================
+   Custom styles for "Building an LLM from Zero"
+   Matches the jackluu.io brand: Quicksand + Playfair Display,
+   teal/cyan accent (#0097A7), clean and readable.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ----------------------------------------------------------
+   Typography
+   ---------------------------------------------------------- */
+
+:root {
+  --md-text-font: "Quicksand", sans-serif;
+  --md-code-font: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* Body text */
+.md-content,
+.md-typeset {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+/* Chapter headings: Playfair Display (matches jackluu.io h1/h2) */
+.md-typeset h1,
+.md-typeset h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.md-typeset h3,
+.md-typeset h4 {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+}
+
+/* Navigation labels */
+.md-nav,
+.md-nav__link,
+.md-tabs__link {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+}
+
+/* ----------------------------------------------------------
+   Color overrides — teal/cyan brand (#0097A7)
+   ---------------------------------------------------------- */
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #0097A7;
+  --md-primary-fg-color--light: #26C6DA;
+  --md-primary-fg-color--dark:  #006978;
+  --md-accent-fg-color:         #00BCD4;
+  --md-typeset-a-color:         #0097A7;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #0097A7;
+  --md-primary-fg-color--light: #26C6DA;
+  --md-primary-fg-color--dark:  #006978;
+  --md-accent-fg-color:         #00BCD4;
+  --md-typeset-a-color:         #4DD0E1;
+}
+
+/* ----------------------------------------------------------
+   Header / site name
+   ---------------------------------------------------------- */
+
+.md-header {
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+.md-header__title {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* ----------------------------------------------------------
+   Navigation sidebar
+   ---------------------------------------------------------- */
+
+.md-nav__title {
+  font-family: "Playfair Display", serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0097A7;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.md-nav__link {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  padding: 0.25em 0;
+  transition: color 0.15s;
+}
+
+.md-nav__link--active {
+  font-weight: 600;
+  color: #0097A7;
+}
+
+/* ----------------------------------------------------------
+   Content area
+   ---------------------------------------------------------- */
+
+/* Chapter title (h1) */
+.md-typeset h1 {
+  font-size: 2rem;
+  line-height: 1.25;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid #e0f7fa;
+}
+
+/* Section headings (h2) */
+.md-typeset h2 {
+  font-size: 1.45rem;
+  margin-top: 2em;
+  padding-bottom: 0.2em;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Sub-section (h3) */
+.md-typeset h3 {
+  font-size: 1.1rem;
+  margin-top: 1.6em;
+  color: #006978;
+}
+
+/* Pull-quotes / blockquotes */
+.md-typeset blockquote {
+  border-left: 4px solid #0097A7;
+  background: #f0fdfd;
+  padding: 0.8em 1.2em;
+  border-radius: 0 6px 6px 0;
+  color: #444;
+  font-style: italic;
+}
+
+/* Key takeaways / tip admonitions */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 6px;
+  font-size: 0.92rem;
+}
+
+/* Inline code */
+.md-typeset code {
+  background: #e0f7fa;
+  color: #006064;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+/* Code blocks */
+.md-typeset pre > code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.md-typeset pre {
+  border-radius: 8px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Tables */
+.md-typeset table:not([class]) {
+  font-size: 0.9rem;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.md-typeset table:not([class]) th {
+  background: #0097A7;
+  color: #fff;
+  font-weight: 600;
+  font-family: "Quicksand", sans-serif;
+}
+
+.md-typeset table:not([class]) tr:nth-child(even) {
+  background: #f0fdfd;
+}
+
+/* ----------------------------------------------------------
+   "Key Takeaways" bullet lists — styled distinctively
+   ---------------------------------------------------------- */
+
+.md-typeset ul li::marker {
+  color: #0097A7;
+}
+
+.md-typeset ol li::marker {
+  color: #0097A7;
+  font-weight: 600;
+}
+
+/* ----------------------------------------------------------
+   Footer
+   ---------------------------------------------------------- */
+
+.md-footer {
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.82rem;
+}
+
+.md-footer-meta {
+  background: #006978;
+}
+
+/* ----------------------------------------------------------
+   Search bar
+   ---------------------------------------------------------- */
+
+.md-search__input {
+  font-family: "Quicksand", sans-serif;
+}
+
+/* ----------------------------------------------------------
+   Mobile improvements
+   ---------------------------------------------------------- */
+
+@media screen and (max-width: 76.1875em) {
+  .md-typeset h1 { font-size: 1.6rem; }
+  .md-typeset h2 { font-size: 1.25rem; }
+}

@@ -1,0 +1,125 @@
+name: Build PDF and Deploy Docs
+
+# Triggers whenever book content, config, or scripts change.
+# Also runnable manually from the GitHub Actions tab.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "book/**"
+      - "src/**"
+      - "README.md"
+      - "mkdocs.yml"
+      - "scripts/concat_book.py"
+      - "requirements.txt"
+  workflow_dispatch:
+
+jobs:
+  # -------------------------------------------------------
+  # Job 1: Concatenate chapters, generate PDF,
+  #         commit it back to the repo.
+  # -------------------------------------------------------
+  build-pdf:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Pandoc and XeLaTeX
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            pandoc \
+            texlive-xetex \
+            texlive-fonts-recommended \
+            texlive-latex-extra \
+            texlive-latex-recommended
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate combined.md (PDF source)
+        run: python scripts/concat_book.py
+
+      - name: Generate PDF
+        run: |
+          pandoc book/combined.md \
+            --template book/template.tex \
+            --pdf-engine=xelatex \
+            --top-level-division=chapter \
+            --toc \
+            --toc-depth=2 \
+            --number-sections \
+            --metadata-file=book/metadata.yaml \
+            --metadata date="$(date '+%B %d, %Y')" \
+            --highlight-style=tango \
+            -o book/building-an-llm-from-zero.pdf
+
+      - name: Commit PDF back to repository
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: auto-generate PDF [skip ci]"
+          file_pattern: "book/building-an-llm-from-zero.pdf"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+
+  # -------------------------------------------------------
+  # Job 2: Build MkDocs site from freshly committed content
+  #         and push to jackluu.io via the myCV repo.
+  # Runs after Job 1 so it gets the latest PDF.
+  # -------------------------------------------------------
+  deploy-to-jackluu:
+    runs-on: ubuntu-latest
+    needs: build-pdf
+
+    steps:
+      - name: Checkout book repository (latest commit, full history)
+        uses: actions/checkout@v4
+        with:
+          ref: main        # gets the PDF committed by Job 1
+          fetch-depth: 0   # full history required by git-revision-date plugin
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install MkDocs Material and plugins
+        run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
+
+      - name: Build MkDocs site
+        run: mkdocs build
+
+      - name: Checkout myCV repository
+        uses: actions/checkout@v4
+        with:
+          repository: jackluucoding/myCV
+          token: ${{ secrets.MYCV_DEPLOY_TOKEN }}
+          path: myCV-repo
+
+      - name: Copy MkDocs site to myCV/book/ and PDF to myCV/files/
+        run: |
+          rm -rf myCV-repo/book
+          mkdir -p myCV-repo/book
+          cp -r site/. myCV-repo/book/
+          mkdir -p myCV-repo/files
+          cp book/building-an-llm-from-zero.pdf myCV-repo/files/
+
+      - name: Commit and push to myCV
+        run: |
+          cd myCV-repo
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add book/ files/building-an-llm-from-zero.pdf
+          # Only commit if there are actual changes
+          git diff --staged --quiet && echo "No changes to deploy" && exit 0
+          git commit -m "docs: update book from build-llm-from-zero [skip ci]"
+          # Pull with rebase in case another workflow pushed concurrently
+          git pull --rebase origin main
+          git push

@@ -1,0 +1,104 @@
+site_name: Building an LLM from Zero
+site_url: https://jackluu.io/book/
+site_description: >
+  A hands-on tutorial for building a GPT-style language model from scratch.
+  So simple you can teach it to your kids. No GPU required.
+site_author: Truong (Jack) Luu
+
+repo_name: jackluucoding/build-llm-from-zero
+repo_url: https://github.com/jackluucoding/build-llm-from-zero
+copyright: "&copy; 2025 Truong (Jack) Luu &nbsp;&middot;&nbsp; <a href='https://jackluu.io'>jackluu.io</a>"
+
+docs_dir: book
+site_dir: site
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant          # SPA mode: no full page reloads
+    - navigation.instant.progress # progress bar on page load
+    - navigation.tracking         # URL updates as you scroll
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top              # back-to-top button
+    - navigation.footer           # previous / next chapter buttons
+    - toc.integrate               # page headings go into the left sidebar
+    - toc.follow                  # highlight current section as you scroll
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+  icon:
+    repo: fontawesome/brands/github
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jackluucoding
+      name: GitHub
+    - icon: fontawesome/solid/globe
+      link: https://jackluu.io
+      name: jackluu.io
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: false
+      type: date
+      fallback_to_build_date: true
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+nav:
+  - Home: index.md
+  - Preface: preface.md
+  - "Part I: Setup":
+    - "Ch 01: Environment Setup": section-1-foundations/ch01-environment-setup.md
+  - "Part II: Foundations":
+    - "Ch 02: What Is a Language Model?": section-1-foundations/ch02-what-is-an-llm.md
+    - "Ch 03: Tensors and PyTorch": section-1-foundations/ch03-tensors-and-pytorch.md
+    - "Ch 04: Tokenization": section-1-foundations/ch04-tokenization.md
+    - "Ch 05: Embeddings": section-1-foundations/ch05-embeddings.md
+  - "Part III: The Attention Mechanism":
+    - "Ch 06: Self-Attention": section-2-attention/ch06-self-attention.md
+    - "Ch 07: Multi-Head Attention": section-2-attention/ch07-multi-head-attention.md
+    - "Ch 08: Feed-Forward and Layer Norm": section-2-attention/ch08-feedforward-and-norms.md
+  - "Part IV: The Transformer":
+    - "Ch 09: The Transformer Block": section-3-the-transformer/ch09-transformer-block.md
+    - "Ch 10: The Full GPT Architecture": section-3-the-transformer/ch10-full-gpt-architecture.md
+    - "Ch 11: Causal Language Modeling": section-3-the-transformer/ch11-causal-language-modeling.md
+  - "Part V: Training":
+    - "Ch 12: Dataset and DataLoader": section-4-training/ch12-dataset-and-dataloader.md
+    - "Ch 13: The Training Loop": section-4-training/ch13-training-loop.md
+    - "Ch 14: Checkpointing": section-4-training/ch14-checkpointing.md
+  - "Part VI: Generation":
+    - "Ch 15: Greedy and Sampling": section-5-generation/ch15-greedy-and-sampling.md
+    - "Ch 16: Temperature and Top-k": section-5-generation/ch16-temperature-and-topk.md
+    - "Ch 17: Putting It All Together": section-5-generation/ch17-putting-it-all-together.md
