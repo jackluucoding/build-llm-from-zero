@@ -56,7 +56,7 @@ jobs:
             --toc-depth=2 \
             --number-sections \
             --metadata-file=book/metadata.yaml \
-            --metadata date="$(date '+%B %d, %Y')" \
+            --metadata date="March 2026" \
             --highlight-style=tango \
             -o book/building-an-llm-from-zero.pdf
 

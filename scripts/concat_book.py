@@ -50,14 +50,17 @@ PDF_PART_HEADERS = {
 PDF_OUTPUT = "book/combined.md"
 
 
-def strip_chapter_prefix(content):
+def strip_chapter_prefix(content, is_preface=False):
     """
     Clean chapter content for PDF:
     - Remove 'Chapter N: ' from h1 headings (LaTeX auto-numbers them)
     - Remove 'Next up:' navigation links (dead links in the PDF)
+    - Mark preface heading as unnumbered so ch01 becomes Chapter 1
     """
     content = re.sub(r'^# Chapter \d+:\s*', '# ', content, flags=re.MULTILINE)
     content = re.sub(r'^\*Next up:.*\*\s*$', '', content, flags=re.MULTILINE)
+    if is_preface:
+        content = re.sub(r'^(# .+?)$', r'\1 {.unnumbered}', content, count=1, flags=re.MULTILINE)
     return content
 
 
@@ -71,7 +74,7 @@ def build_pdf():
             parts.append(PDF_PART_HEADERS[path])
         with open(path, "r", encoding="utf-8") as f:
             content = f.read()
-        parts.append(strip_chapter_prefix(content.strip()))
+        parts.append(strip_chapter_prefix(content.strip(), is_preface=(path == "book/preface.md")))
         parts.append("\n\n\\newpage\n\n")
 
     with open(PDF_OUTPUT, "w", encoding="utf-8") as f:
