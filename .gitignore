@@ -1,0 +1,75 @@
+# =============================================================
+# Python
+# =============================================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# =============================================================
+# Virtual environments
+# =============================================================
+venv/
+env/
+.venv/
+.env/
+
+# =============================================================
+# Data files (large - readers download these via script)
+# =============================================================
+src/data/
+data/
+
+# =============================================================
+# Trained model checkpoints (large binary files - not public)
+# =============================================================
+checkpoints/
+*.pt
+*.pth
+
+# =============================================================
+# Auto-generated build artifacts (not committed)
+# =============================================================
+# Temporary concat file used only during PDF build
+book/combined.md
+
+# MkDocs site build output (deployed to GitHub Pages, not committed)
+site/
+
+# =============================================================
+# IDE and editor files
+# =============================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# =============================================================
+# OS-generated files
+# =============================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# =============================================================
+# Jupyter notebooks (not part of this tutorial)
+# =============================================================
+.ipynb_checkpoints/
+*.ipynb
+
+# =============================================================
+# Claude Code local settings (private)
+# =============================================================
+.claude/settings.local.json
