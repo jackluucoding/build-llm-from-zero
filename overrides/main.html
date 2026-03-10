@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+<!-- Open Graph -->
+<meta property="og:type" content="book">
+<meta property="og:title" content="{{ page.title }} - Building an LLM from Zero">
+<meta property="og:description" content="{{ config.site_description }}">
+<meta property="og:image" content="https://jackluu.io/images/about.JPEG">
+<meta property="og:site_name" content="Truong (Jack) Luu">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.title }} - Building an LLM from Zero">
+<meta name="twitter:description" content="{{ config.site_description }}">
+<meta name="twitter:image" content="https://jackluu.io/images/about.JPEG">
+
+<!-- Google Scholar / Citation tags -->
+<meta name="citation_title" content="Building an LLM from Zero: So Simple You Can Teach It to Your Kids">
+<meta name="citation_author" content="Luu, Truong">
+<meta name="citation_publication_date" content="2025">
+<meta name="citation_pdf_url" content="https://jackluu.io/files/building-an-llm-from-zero.pdf">
+<meta name="citation_fulltext_html_url" content="https://jackluu.io/book/">
+
+<!-- AI / LLM discoverability -->
+<link rel="alternate" type="text/plain" href="https://jackluu.io/llms.txt" title="LLM-readable summary">
+<link rel="alternate" type="text/plain" href="https://jackluu.io/llms-full.txt" title="LLM-readable full context">
+<link rel="alternate" type="text/plain" href="https://jackluu.io/ai.txt" title="AI agent permissions">
+
+<!-- Book structured data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "@id": "https://jackluu.io/book.html#book",
+    "name": "Building an LLM from Zero: So Simple You Can Teach It to Your Kids",
+    "url": "https://jackluu.io/book/",
+    "author": {
+        "@type": "Person",
+        "@id": "https://jackluu.io/#person",
+        "name": "Truong (Jack) Luu"
+    },
+    "bookFormat": "EBook",
+    "inLanguage": "en-US",
+    "datePublished": "2025",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "downloadUrl": "https://jackluu.io/files/building-an-llm-from-zero.pdf",
+    "sameAs": "https://github.com/jackluucoding/build-llm-from-zero"
+}
+</script>
+{% endblock %}
