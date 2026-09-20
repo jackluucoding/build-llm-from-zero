@@ -1,0 +1,15 @@
+# Building an LLM from Zero - Dependencies
+#
+# Install PyTorch (CPU-only build — no GPU needed, saves ~1.8 GB of disk space):
+#   pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+#
+# Then install the rest:
+#   pip install numpy requests matplotlib
+#
+# Or install everything at once:
+#   pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu && pip install numpy requests matplotlib
+
+torch==2.6.0
+numpy>=1.24,<2.0
+requests>=2.31
+matplotlib>=3.7

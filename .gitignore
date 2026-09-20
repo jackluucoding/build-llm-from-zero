@@ -1,0 +1,69 @@
+# =============================================================
+# Python
+# =============================================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# =============================================================
+# Virtual environments
+# =============================================================
+venv/
+env/
+.venv/
+.env/
+
+# =============================================================
+# Data files (large - readers download these via script)
+# =============================================================
+# The Shakespeare text ships with the repository so a clone is ready to run;
+# anything else that lands in these folders is a local artifact
+src/data/*
+!src/data/shakespeare.txt
+/data/
+
+# =============================================================
+# Trained model checkpoints (large binary files - not public)
+# =============================================================
+# The trained model ships with the repository, so a reader can run the later
+# chapters' examples before training their own. Everything else stays out.
+checkpoints/*
+!checkpoints/model.pt
+*.pth
+
+# =============================================================
+# IDE and editor files
+# =============================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# =============================================================
+# OS-generated files
+# =============================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# =============================================================
+# Jupyter notebooks: the generated chapter notebooks are tracked,
+# the editor's scratch state is not
+# =============================================================
+.ipynb_checkpoints/
+
+# Charts that the examples save
+/*.png
