@@ -4,7 +4,7 @@ Read the chapter online: https://jackluu.io/book/section-5-generation/ch15-greed
 
 ## Try It
 
-Different starting prompts create different context for the model. Let's see how sampling handles new prompts.
+Different starting prompts create different context for the model. The script below shows how sampling handles new prompts.
 
 ```python
 # ...
@@ -18,7 +18,7 @@ print(f"\n--- Prompt: 'JULIET:\\n' ---")
 print(generate_sample(model, "JULIET:\n", encode_fn, decode_fn, cfg, 50))
 ```
 
-Lines 6 and 9 generate new text starting from two completely different prompts.
+Lines 6 and 9 generate new text starting from two different prompts.
 
 ```console
 $ python src/examples/ch15_different_prompts.py
@@ -39,3 +39,16 @@ As do p
 1. Why does greedy decoding often get stuck repeating the same phrase?
 2. What PyTorch function do we use to randomly pick a token based on its probabilities?
 3. Why do we slice the logits tensor with `[:, -1, :]` in the generation loop?
+
+## Assignment
+
+**Assignment 15: Which half changes**
+
+**About 15 minutes. You change one number and write no new code.** Work in this chapter's Colab notebook or on your own laptop.
+
+1. **Run it.** Run `src/ch14_generate_greedy.py` as it is. Copy the text under the GREEDY heading and the text under the SAMPLING heading.
+2. **Change one number.** In the demo part of the file, find `torch.manual_seed(42)`. The seed fixes the random draws, so every run of the script picks the same characters. Change `42` to any whole number you like and run the script again.
+3. **Compare.** Which of the two texts changed? Which one is the same, character for character? In the greedy text, which words keep coming back?
+4. **Explain it.** In two or three sentences a manager could follow, say which rule you would choose for a task that must give the same answer every time, and what you give up by choosing it.
+
+**Hand in:** both pairs of texts, your answers to step 3, and your sentences.

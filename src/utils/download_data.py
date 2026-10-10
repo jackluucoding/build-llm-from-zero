@@ -19,28 +19,34 @@ import requests
 # Settings
 DATA_URL = ("https://raw.githubusercontent.com/jackluucoding/"
             "build-llm-from-zero/main/src/data/shakespeare.txt")
-SHA256 = "a29d649defa42cc30feade39d794c74a4f54c23e7dac87b44ed9b9e3f20da95b"
+SHA256 = "86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed"
 DATA_PATH = os.path.normpath(
     os.path.join(os.path.dirname(__file__), "..", "data", "shakespeare.txt")
 )
 
 # --- The Idea ---
 
+def shown(path):
+    # The path as the reader sees it from the project folder
+    root = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    return os.path.relpath(path, root).replace(os.sep, "/")
+
 def fingerprint(path):
-    # A short, fixed summary of the file's exact bytes
+    # A short, fixed summary of the file's bytes. Line endings are normalized
+    # first, so a copy that Git checked out with Windows line endings still passes.
     with open(path, "rb") as f:
-        return hashlib.sha256(f.read()).hexdigest()
+        return hashlib.sha256(f.read().replace(b"\r\n", b"\n")).hexdigest()
 
 def download_shakespeare():
     # Already here and unchanged? Nothing to do.
     if os.path.exists(DATA_PATH) and fingerprint(DATA_PATH) == SHA256:
-        print(f"Dataset ready: {DATA_PATH} ({os.path.getsize(DATA_PATH) // 1024} KB)")
+        print(f"Dataset ready: {shown(DATA_PATH)} ({os.path.getsize(DATA_PATH) // 1024} KB)")
         return DATA_PATH
 
     os.makedirs(os.path.dirname(DATA_PATH), exist_ok=True)
     print(f"Fetching the dataset...")
     print(f"  Source : {DATA_URL}")
-    print(f"  Saving : {DATA_PATH}")
+    print(f"  Saving : {shown(DATA_PATH)}")
 
     response = requests.get(DATA_URL, timeout=60)
     response.raise_for_status()

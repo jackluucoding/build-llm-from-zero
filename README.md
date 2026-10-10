@@ -1,17 +1,19 @@
-# Building an LLM from Zero: Code and Exercises
+# Small Enough to Read: Code and Exercises
 
-Companion code for the book **Building an LLM from Zero: Look Inside the Black Box**
-by Truong (Jack) Luu. The book builds a small GPT-style language model from
-scratch in Python and PyTorch, in 17 chapters and 3 modules, and trains it on an
-ordinary laptop CPU.
+Companion code for the book **Small Enough to Read: Build an LLM from Zero on Your Laptop**
+by Truong (Jack) Luu, a free, hands-on book written for business students. The
+book builds a small GPT-style language model from scratch in Python and PyTorch,
+in 17 chapters and 3 modules, and trains it on an ordinary laptop CPU. It was first
+published as *Building an LLM from Zero*.
 
 - Read the book online: https://jackluu.io/book/
-- Download the PDF: https://jackluu.io/files/building-an-llm-from-zero.pdf
-- Download the EPUB: https://jackluu.io/files/building-an-llm-from-zero.epub
+- Download the PDF: https://jackluu.io/files/small-enough-to-read.pdf
+- Download the EPUB: https://jackluu.io/files/small-enough-to-read.epub
+- Teach a course with it: https://jackluu.io/book/teach/
 
 This repository holds the runnable code for every chapter, the short "Try It"
-examples, the exercises, and a notebook per chapter. The book explains each file
-line by line.
+examples, the exercises and assignments, and a notebook per chapter. The book
+explains each file line by line.
 
 ## Run it in your browser
 
@@ -78,7 +80,8 @@ File numbers are one lower than chapter numbers because the setup check is `ch00
 
 ## Exercises
 
-Each chapter's hands-on tasks and review questions:
+Each chapter's hands-on tasks, review questions and assignment. Every assignment
+takes about 15 minutes: run a script, change one value, and explain what changed.
 
 - [Chapter 1](exercises/ch01-environment-setup.md)
 - [Chapter 2](exercises/ch02-what-is-an-llm.md)

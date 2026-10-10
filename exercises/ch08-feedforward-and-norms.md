@@ -4,13 +4,26 @@ Read the chapter online: https://jackluu.io/book/section-2-attention/ch08-feedfo
 
 ## Try It
 
-Open `src/ch07_feedforward.py` and change the LayerNorm input to have a massive spread: `x_single = torch.randn(config.n_embd) * 1000 + 500`. Run the script again. You will see that LayerNorm still perfectly tames it back to a mean of 0 and a standard spread of 1.
+Open `src/ch07_feedforward.py` and change the LayerNorm input to have a massive spread: `x_single = torch.randn(config.n_embd) * 1000 + 500`. Run the script again. You will see that LayerNorm still tames it back to a mean of 0 and a standard spread of 1.
 
 **In Business**
-Imagine you are building an assistant to draft company emails in your house style. If the system is unstable, it might output gibberish. LayerNorm acts like a manager double-checking work between steps, ensuring the data never drifts too far off track before passing it to the next team.
+Imagine you are building an assistant to draft company emails in your house style. If the system is unstable, it might output gibberish. LayerNorm acts like a manager double-checking work between steps, so that the data never drifts too far off track before it is passed to the next team.
 
 ## Check Your Understanding
 
 1. Why does the feed-forward network expand its input size by 4?
 2. What happens to a strongly negative number when it passes through GELU?
 3. What is the average value of a token's numbers immediately after LayerNorm?
+
+## Assignment
+
+**Assignment 8: Dimmer or switch**
+
+**About 15 minutes. You change one number and write no new code.** Work in this chapter's Colab notebook or on your own laptop.
+
+1. **Run it.** Run `src/ch07_feedforward.py` as it is. Copy the three lines it prints under `GELU activation`: the `Input`, `GELU` and `ReLU` lines.
+2. **Change one number.** Find the line `sample = torch.tensor([-3.0, -1.0, -0.5, 0.0, 0.5, 1.0, 2.0, 3.0])`. These are the eight test numbers the script feeds to GELU and to ReLU. Change the first one, `-3.0`, to `-2.0` and run the script again. The list now holds `-2.0` and `2.0`, two numbers of the same size with opposite signs.
+3. **Compare.** What does GELU print for `-2.0`, and what does it print for `2.0`? What does ReLU print for the same two numbers? Which of the two, GELU or ReLU, gives `-3.0` and `-2.0` exactly the same result?
+4. **Explain it.** In two or three sentences a manager could follow, say what GELU does to a positive number and to a negative number of the same size, and why the chapter calls GELU a dimmer and ReLU a switch.
+
+**Hand in:** both sets of three lines, your answers to step 3, and your sentences.

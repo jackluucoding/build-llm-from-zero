@@ -72,7 +72,7 @@ def main():
 
     print()
     if all_ok:
-        print("All checks passed! You are ready to start Chapter 1.")
+        print("All checks passed! You are ready to start Chapter 2.")
     else:
         print("Some checks failed. See Chapter 1 troubleshooting tips.")
 

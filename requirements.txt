@@ -1,4 +1,4 @@
-# Building an LLM from Zero - Dependencies
+# Small Enough to Read - Dependencies
 #
 # Install PyTorch (CPU-only build — no GPU needed, saves ~1.8 GB of disk space):
 #   pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
