@@ -1,14 +1,14 @@
-# Small Enough to Read: Code and Exercises
+# Teach Your Computer to Write: Code and Exercises
 
-Companion code for the book **Small Enough to Read: Build an LLM from Zero on Your Laptop**
+Companion code for the book **Teach Your Computer to Write: Build and Train an LLM from Zero**
 by Truong (Jack) Luu, a free, hands-on book written for business students. The
 book builds a small GPT-style language model from scratch in Python and PyTorch,
-in 17 chapters and 3 modules, and trains it on an ordinary laptop CPU. It was first
+in 17 chapters and 3 modules, and trains it on an ordinary computer with no graphics card. It was first
 published as *Building an LLM from Zero*.
 
 - Read the book online: https://jackluu.io/book/
-- Download the PDF: https://jackluu.io/files/small-enough-to-read.pdf
-- Download the EPUB: https://jackluu.io/files/small-enough-to-read.epub
+- Download the PDF: https://jackluu.io/files/teach-your-computer-to-write.pdf
+- Download the EPUB: https://jackluu.io/files/teach-your-computer-to-write.epub
 - Teach a course with it: https://jackluu.io/book/teach/
 
 This repository holds the runnable code for every chapter, the short "Try It"
