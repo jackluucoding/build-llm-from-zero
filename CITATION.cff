@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this code, the notebooks or the exercises, please cite the book."
+title: "Teach Your Computer to Write: code, notebooks and exercises"
+type: software
+authors:
+  - family-names: Luu
+    given-names: Truong
+    orcid: "https://orcid.org/0000-0002-3202-3616"
+repository-code: "https://github.com/jackluucoding/build-llm-from-zero"
+url: "https://jackluu.io/book/"
+preferred-citation:
+  type: book
+  title: "Teach Your Computer to Write: Build and Train an LLM from Zero"
+  authors:
+    - family-names: Luu
+      given-names: Truong
+      orcid: "https://orcid.org/0000-0002-3202-3616"
+  year: 2025
+  edition: "October 2026"
+  url: "https://jackluu.io/book/"

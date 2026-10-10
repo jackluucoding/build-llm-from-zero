@@ -106,6 +106,11 @@ takes about 15 minutes: run a script, change one value, and explain what changed
 `src/utils/download_data.py` downloads the Tiny Shakespeare text from Andrej Karpathy's
 char-rnn project (https://github.com/karpathy/char-rnn) into `src/data/`.
 
+## How to cite
+
+Use the "Cite this repository" button on this page, or see
+[How to Cite](https://jackluu.io/book/teach/#how-to-cite) on the book's site.
+
 ## License
 
 - Code (`src/`) and notebooks (`notebooks/`): MIT, see [LICENSE](LICENSE).
