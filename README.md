@@ -108,8 +108,11 @@ char-rnn project (https://github.com/karpathy/char-rnn) into `src/data/`.
 
 ## License
 
-- Code (`src/`): MIT, see [LICENSE](LICENSE).
-- Book text and exercises (`exercises/`): CC BY-NC 4.0, see [LICENSE-BOOK](LICENSE-BOOK).
+- Code (`src/`) and notebooks (`notebooks/`): MIT, see [LICENSE](LICENSE).
+- Exercises (`exercises/`): [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/), so that
+  instructors may adapt them for their own courses.
+- The book's text and lecture decks, at https://jackluu.io/book/: CC BY-NC-ND 4.0.
+  [LICENSE-BOOK](LICENSE-BOOK) sets out all three.
 
 ## Author
 

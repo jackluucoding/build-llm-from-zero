@@ -1,17 +1,23 @@
-Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+(CC BY-NC-ND 4.0)
 
 Copyright (c) 2025 Truong (Jack) Luu
 https://jackluu.io
 
-This license applies to the book text only (the book/ directory).
-The source code (the src/ directory) is licensed under the MIT License.
+This license applies to the book text (the book/ directory) and the lecture
+decks (the slides/ directory).
+
+  The source code (src/) and the chapter notebooks (notebooks/) are licensed
+  under the MIT License; see LICENSE.
+
+  The exercises (exercises/ in the companion repository) are licensed under
+  CC BY-NC 4.0, so that instructors may adapt them for their own courses.
 
 ---
 
 You are free to:
 
   Share  — copy and redistribute the material in any medium or format
-  Adapt  — remix, transform, and build upon the material
 
 Under the following terms:
 
@@ -26,12 +32,19 @@ Under the following terms:
                     commercially exploit the book text without explicit
                     written permission from the author.
 
+  NoDerivatives   — If you remix, transform, or build upon the material, you
+                    may not distribute the modified material. Quoting the book
+                    in teaching, reviews or scholarship is unaffected; what
+                    this prevents is the distribution of an altered edition,
+                    including a translation, without permission.
+
 No additional restrictions — You may not apply legal terms or technological
 measures that legally restrict others from doing anything the license permits.
 
 ---
 
-Full license text: https://creativecommons.org/licenses/by-nc/4.0/legalcode
+Full license text: https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
 
-For commercial licensing inquiries (including print or ebook sales),
-contact: luutp@mail.uc.edu
+The author retains all commercial rights in the book. For commercial licensing
+inquiries, including print or ebook sales and translations, contact:
+hello@jackluu.io
