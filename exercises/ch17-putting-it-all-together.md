@@ -4,7 +4,7 @@ Read the chapter online: https://jackluu.io/book/section-5-generation/ch17-putti
 
 ## Try It
 
-Try the final model the way a real service would use it, by loading the saved file `model_final.pt` and answering a user's prompt. The repository already has a script that does this:
+Test drive the final model like a deployed service would by loading the saved file `model_final.pt` and responding to a user's prompt. You are already provided with a script that accomplishes this in the repo:
 
 ```python
 # ...

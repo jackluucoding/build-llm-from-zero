@@ -19,9 +19,9 @@ Demo: Encoding short business phrases
 
 ## Check Your Understanding
 
-1. Why must we convert text to numbers before feeding it to a language model?
-2. In our character-level tokenizer, what happens if we try to encode a character that wasn't in the training data?
-3. What is the purpose of the validation set?
+1. How come we need to turn our text into numbers to use with a language model?
+2. If we attempt to encode a character that wasn't in the training data using our character-level tokenizer, what will happen?
+3. Why do we need a validation set?
 4. How many unique characters are in our vocabulary?
 
 ## Assignment
@@ -30,9 +30,9 @@ Demo: Encoding short business phrases
 
 **About 15 minutes. You change one word and write no new code.** Work in this chapter's Colab notebook or on your own laptop.
 
-1. **Run it.** Run `src/examples/ch04_tokenizer_demo.py` as it is. Copy the three rows it prints, each a phrase and its list of numbers.
-2. **Change one word.** Find the line `"URGENT!",`. It is one of the three phrases the script turns into numbers. Change `URGENT` to `urgent`, in small letters, and keep everything else on the line, so it reads `"urgent!",`. Run the script again.
-3. **Compare.** Which numbers in the second row changed? Which one stayed the same, and which character does it stand for? Two numbers in your new row also appear in the `invoice` row. Which two letters do they stand for?
-4. **Explain it.** In two or three sentences a manager could follow, say why the model sees `URGENT!` and `urgent!` as different text when a person reads the same word.
+1. **Run it.** Run `src/examples/ch04_tokenizer_demo.py` unaltered. Copy the three rows it outputs, which will be phrases with their lists of numbers.
+2. **Change one word.** Locate the line `"URGENT!",`. It's one of the three phrases we'll convert to numbers with this script. Replace the word `URGENT` with `urgent`, making it all lowercase letters, but leave the rest of the line intact, so it says `"urgent!",`. Run the script again.
+3. **Compare.** Which numbers changed in the second row? Which did not, and what letter does it represent? Two numbers in your new row are also in the `invoice` row. What two letters do they represent?
+4. **Explain it.** In two or three sentences someone who manages you would understand, explain why the model sees `URGENT!` and `urgent!` are two different pieces of text when people reading them understand it's the same word.
 
 **Hand in:** both sets of three rows, your answers to step 3, and your sentences.

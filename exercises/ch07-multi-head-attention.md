@@ -4,10 +4,10 @@ Read the chapter online: https://jackluu.io/book/section-2-attention/ch07-multi-
 
 ## Try It
 
-Change the number of heads in `src/utils/config.py` by setting `n_heads = 8` instead of 4. Run the script again and notice how the `head_size` automatically drops to 16, so the final concatenated size is still 128 (8 × 16 = 128). The model can have more perspectives, but each one has less detail.
+Edit `src/utils/config.py` to use 8 heads instead of 4. Set `n_heads = 8`. Run the script again. Pay attention to how `head_size` is now automatically set to 16 to keep the final concatenated size at 128 (8 × 16 = 128). We can have more viewpoints, but with less granularity within each one.
 
 **Watch Out**
-For multi-head attention to work cleanly, your embedding dimension (`n_embd`) must be divisible by your number of heads (`n_heads`). If you try `n_embd = 128` and `n_heads = 5`, the program will crash because it cannot divide the channels equally.
+Your embedding dimension (`n_embd`) has to be divisible by your number of heads (`n_heads`) for multi-head attention to operate cleanly. Setting `n_embd = 128` and `n_heads = 5` will crash the program, as it won't be able to cleanly divide the channels.
 
 ## Check Your Understanding
 
@@ -24,9 +24,9 @@ For multi-head attention to work cleanly, your embedding dimension (`n_embd`) mu
 
 **About 15 minutes. You change one word and write no new code.** Work in this chapter's Colab notebook or on your own laptop.
 
-1. **Run it.** Run `src/examples/ch07_heads_differ.py` as it is. Copy the last line it prints, the one that starts `Sharpest focus per head`.
-2. **Change one word.** Near the top of the file, find `PROMPT = "JULIET: O Romeo"`. The prompt is the line of text the model reads. Change `Romeo` to `love`, keep the quotation marks, and run the script again.
-3. **Compare.** Which character does each head focus on most now? Which heads pick the character just before the last one in both runs? Which two heads have the smallest numbers in both runs?
-4. **Explain it.** In two or three sentences a manager could follow, say how the four heads differ, and why it is worth testing a second prompt before you say what job a head does.
+1. **Run it.** Run `src/examples/ch07_heads_differ.py` unaltered. Copy the very last line printed by the program, the one that begins `Sharpest focus per head`.
+2. **Change one word.** Find the line near the top of the program that reads `PROMPT = "JULIET: O Romeo"`. This is the line of text that we prompt the model with. Edit `Romeo` to read `love` instead, preserving the quotation marks, and run the program again.
+3. **Compare.** Which character is each head focused on most now? Of all the heads, which two heads had the smallest numbers for both runs? For both runs, which heads focused on the character just before the last character?
+4. **Explain it.** In two or three sentences that a manager could understand, describe how the four heads differ, and why experimenting with a second prompt is worthwhile before you say what job each head does.
 
 **Hand in:** both `Sharpest focus per head` lines, your answers to step 3, and your sentences.

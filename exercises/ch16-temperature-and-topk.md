@@ -4,7 +4,7 @@ Read the chapter online: https://jackluu.io/book/section-5-generation/ch16-tempe
 
 ## Try It
 
-Open the existing script `src/examples/ch16_explore_temp.py` and run it. It uses a very low temperature (`0.1`), and you will notice that it behaves almost exactly like greedy decoding, picking the safe top character every time.
+Open the script `src/examples/ch16_explore_temp.py` and run it. It initializes with a very low temperature (`0.1`), and you will see it is essentially doing greedy decoding (picking the safe top character every time).
 
 ```console
 $ python src/examples/ch16_explore_temp.py

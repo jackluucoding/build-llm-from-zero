@@ -4,10 +4,10 @@ Read the chapter online: https://jackluu.io/book/section-2-attention/ch08-feedfo
 
 ## Try It
 
-Open `src/ch07_feedforward.py` and change the LayerNorm input to have a massive spread: `x_single = torch.randn(config.n_embd) * 1000 + 500`. Run the script again. You will see that LayerNorm still tames it back to a mean of 0 and a standard spread of 1.
+Open `src/ch07_feedforward.py` and modify the LayerNorm input to have a very large spread: `x_single = torch.randn(config.n_embd) * 1000 + 500`. Execute the script again. Note that LayerNorm still normalizes it back to mean 0 with standard deviation of 1.
 
 **In Business**
-Imagine you are building an assistant to draft company emails in your house style. If the system is unstable, it might output gibberish. LayerNorm acts like a manager double-checking work between steps, so that the data never drifts too far off track before it is passed to the next team.
+Suppose you were building some kind of ML program to generate emails for you at work, written in your company's house style. If your model is poor, it could output garbage. You can think of LayerNorm as ensuring values don't explode before heading to the next neuron layer.
 
 ## Check Your Understanding
 

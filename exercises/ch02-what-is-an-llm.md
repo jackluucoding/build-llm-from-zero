@@ -14,9 +14,9 @@ Read the chapter online: https://jackluu.io/book/section-1-foundations/ch02-what
 
 **About 15 minutes. You change one word and write no new code.** Work in this chapter's Colab notebook or on your own laptop.
 
-1. **Run it.** Run `src/examples/ch02_next_char.py` as it is. Copy the five letters and their counts.
-2. **Change one word.** Find the line `prefix = "the "`. The prefix is the piece of text the script looks for. Change `the` to `my` and keep the space before the closing quotation mark, so the line reads `prefix = "my "`. Run the script again.
-3. **Compare.** Which letter comes first now? Which letters are in both lists? Name one word Shakespeare could write after `my` that starts with the new first letter.
-4. **Explain it.** In two or three sentences a manager could follow, say why the most likely next letter changed when you changed one word.
+1. **Run it.** Run `src/examples/ch02_next_char.py` as it comes. Cut and paste the five letters and counts.
+2. **Change one word.** Locate the line `prefix = "the "`. The prefix is what the program searches for. Replace `the` with `my` and keep the space before the closing quotation mark, so that your line looks like `prefix = "my "`. Run the program again.
+3. **Compare.** What letter is first now? Which letters appear in both groups? Think of one word Shakespeare could write after `my` that starts with the new first letter.
+4. **Explain it.** In two or three sentences a manager could understand, explain why the most common next letter changed when you changed one word.
 
 **Hand in:** both lists of five letters and counts, your answers to step 3, and your sentences.

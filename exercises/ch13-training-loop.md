@@ -53,10 +53,10 @@ Final weight: 4.00
 Open `src/examples/ch13_autograd_demo.py`. Change the starting `weight` to `10.0` and watch how the gradient pulls it down instead of pushing it up, always aiming for the target output of 12.
 
 **In Business**
-Training is where the real investment happens. When your company trains its house-style assistant, it pays for the compute time required to run this loop billions of times across thousands of documents. The loss curve is your main dashboard metric, because as long as it is going down, the assistant is getting better at mimicking your corporate voice.
+That's where you spend money. When you train your assistant with your house style, your business is spending money on compute time to iterate this process billions of times on thousands of documents. You will want to monitor your loss curve as a key metric. As long as validation loss is decreasing, your assistant is getting better at mimicking your style.
 
 **Watch Out**
-Never forget `optimizer.zero_grad()` before `loss.backward()`. PyTorch accumulates gradients by default (adds them up). If you don't zero them out at the start of the backward pass, your model will take steps based on a mix of the current batch and all previous batches, wandering off in the wrong direction.
+Always remember to run `optimizer.zero_grad()` before `loss.backward()`. By default, PyTorch accumulates gradients (it sums them). If you forget to zero them before starting the backward pass, your model will take a step based on a mix of the current batch and all the previous batches and will thus go in the wrong direction.
 
 ## Check Your Understanding
 

@@ -30,7 +30,7 @@ loss_wrong = F.cross_entropy(logits_wrong, target)
 print(f"Loss: {loss_wrong.item():.4f}")
 ```
 
-Lines 14 and 15 calculate the loss when the model is confident and correct, resulting in a much lower loss.
+Lines 14 and 15 calculate the loss when the model is confident and correct, which gives a much lower loss.
 
 ```console
 $ python src/examples/ch11_loss_demo.py
@@ -48,10 +48,10 @@ Loss: 2.1269
 Open `src/examples/ch11_loss_demo.py` and change `logits_right` to `[[5.0, 0.0]]` to make the model even more confident. Run the script and see how close to zero the loss gets.
 
 **In Business**
-If you are building an assistant to draft text in your company's house style, causal language modeling is how the assistant learns to write like you. By reviewing thousands of past emails and reports (the target sequences), it learns which words typically follow other words in your organization's specific context. The loss tells you how close its drafts are to your historical data.
+Let's say you want to teach your assistant to generate content that conforms to your organization's house style. Causal language modeling allows you to do this by inputting target sequences, which would be all the previous emails or documents that your company has created. It then learns what words tend to follow each other in that environment. With the loss, you can see how close it is to your company's history.
 
 **Watch Out**
-When calculating cross-entropy loss in PyTorch, the `F.cross_entropy` function expects the logits to be flattened. It wants one row of scores for every token, a 2D table of shape `[Total Tokens, Vocabulary Size]`, not the model's 3D stack of tables `[Batch, Time, Vocabulary Size]`. That is why the code uses `logits.view(B * T_len, config.vocab_size)`. Forgetting to reshape is a common bug.
+Remember that `F.cross_entropy()` wants logits to already be flattened out to one row of scores per token. `F.cross_entropy()` wants a 2D table of size `[Total Tokens, VOCAB_SIZE]`, not the model's 3D stack of tables `[BATCH, TIME, VOCAB_SIZE]`. That's what `logits.view(B * T_len, config.vocab_size)` does in that code. This line is easy to forget, which makes it a common bug.
 
 ## Check Your Understanding
 

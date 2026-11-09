@@ -4,10 +4,10 @@ Read the chapter online: https://jackluu.io/book/section-3-the-transformer/ch09-
 
 ## Try It
 
-Open `src/ch08_transformer_block.py` and change the number of layers in the stack from `config.n_layers` to `12`. Run the script again. Notice how the total parameter count grows, but the output shape remains exactly the same.
+Edit `src/ch08_transformer_block.py` and modify the number of layers in the stack from `config.n_layers` to `12`. Execute the script once more. Keep track of how the total number of parameters increases. The output shape stays precisely the same.
 
 **In Business**
-When building software systems (like a house-style writing assistant), you want modular, scalable processes. A Transformer block is the ultimate modular unit. If your assistant is not smart enough, you do not have to invent a new architecture. You stack more blocks and train it longer.
+Software should be built with building blocks. A Transformer block is such a building block. Your house-style writing assistant isn't good enough? Add more Transformer blocks and train it longer. Don't try to reinvent the wheel.
 
 ## Check Your Understanding
 

@@ -4,10 +4,10 @@ Read the chapter online: https://jackluu.io/book/section-3-the-transformer/ch10-
 
 ## Try It
 
-Open `src/ch09_gpt_model.py`, find the line `config = GPTConfig()` and add a new line under it: `config.n_layers = 6`. Run the script again. Watch how the parameter count increases. The blocks contain the vast majority of the model's "brain".
+Open `src/ch09_gpt_model.py`. Locate the line `config = GPTConfig()` and insert a new line underneath it: `config.n_layers = 6`. Execute the script once more. The parameter count grows, and most of the parameters are in the blocks.
 
 **In Business**
-Building the final GPT architecture is like assembling a complete production pipeline from modular components. In our house-style writing assistant, we combine a data reader (embeddings), an analysis engine (the blocks), and an output formatter (the LM head). Because it is modular, you can upgrade the engine (add more layers) without rewriting the rest of the pipeline.
+Think of building our final GPT model as building a pipeline out of Lego bricks. You've got your data reader (embeddings), processor (your blocks) and output (the LM head). You can upgrade your house-style GPT's processor by stacking more layers on without having to replace any other parts of your pipeline.
 
 ## Check Your Understanding
 

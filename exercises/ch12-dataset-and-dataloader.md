@@ -50,10 +50,10 @@ Example 4:
 Open `src/examples/ch12_batching_demo.py`. Change `block_size` to 4, run it again, and notice how the number of available examples decreases.
 
 **In Business**
-Imagine your house-style assistant needs to learn from a massive archive of 100,000 corporate documents. You wouldn't train it by showing it one word at a time. Processing data in parallel batches is like having the assistant review 32 different emails simultaneously and learn from all of them, which is the key to training efficiently at scale.
+Imagine wanting your company's house-style assistant to learn from a library of documents. Say we had 100,000 company documents that we wanted to teach our assistant on. Obviously we're not teaching it one word at a time. When learning, you can teach your assistant in groups of 32 at a time. These could be emails or articles or even whole books. That is what makes it so efficient to teach your assistant on these large data sets.
 
 **Watch Out**
-Be careful with the `__len__` of your dataset. If you have 100 characters and a `block_size` of 10, you can only create 90 starting positions because you need 11 characters (10 for input, 1 extra for the target) for a valid example. That is why the code uses `len(self.data) - self.block_size`.
+Watch your dataset's `__len__`. If you have 100 characters and your `block_size` is 10, you only have 90 starting spots. Why? Because we need 11 characters to create a single example, 10 characters to input and 1 more to predict. That's why there's `len(self.data) - self.block_size` in the code.
 
 ## Check Your Understanding
 
